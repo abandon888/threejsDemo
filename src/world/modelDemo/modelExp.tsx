@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 import Placeholder from './Placeholder'
 import { Bird } from './bird'
 import Fox from './fox'
+import { BookCase } from './bookCase'
 
 export default function modelExp() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -28,6 +29,7 @@ export default function modelExp() {
         <Model />
         <Bird position-y={5} />
         <Fox />
+        <BookCase position-x={2} />
       </Suspense>
       <Perf position="top-left" />
     </>
