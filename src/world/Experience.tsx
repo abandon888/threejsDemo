@@ -1,17 +1,13 @@
-import React, { useRef } from 'react'
-import { Canvas, useFrame, extend, useThree } from '@react-three/fiber'
+import { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
 //import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import {
   OrbitControls,
   TransformControls,
   PivotControls,
   Html,
-  Text,
-  Float,
-  MeshReflectorMaterial,
   useHelper,
 } from '@react-three/drei'
-import CustomObject from './CustomObject'
 import Box from './Box'
 import { useControls, button } from 'leva'
 import { Perf } from 'r3f-perf'
