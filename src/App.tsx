@@ -4,6 +4,8 @@ import { Canvas } from '@react-three/fiber'
 //import { World } from './World1/World.js'
 import ModelExp from './world/modelDemo/modelExp.js'
 import { Leva } from 'leva'
+import Experience from './world/Experience.js'
+import World1 from './world/World.js'
 
 export default function App() {
   const created = ({ scene }: any) => {
@@ -29,9 +31,9 @@ export default function App() {
           far: 200,
         }}
         onCreated={created}>
-        {/* <Experience /> */}
-        {/* <World1 /> */}
-        <ModelExp />
+        <Experience />
+        <World1 />
+        {/* <ModelExp /> */}
       </Canvas>
     </>
   )

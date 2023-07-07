@@ -47,6 +47,9 @@ export function Bird(props: any) {
           morphTargetDictionary={nodes.Object_0.morphTargetDictionary}
           morphTargetInfluences={nodes.Object_0.morphTargetInfluences}
           rotation={[Math.PI / 2, 0, 0]}
+          onClick={() => {
+            console.log('click')
+          }}
         />
       </group>
     </group>

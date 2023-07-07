@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   env: { browser: true, es2020: true },
   extends: [
@@ -9,6 +10,7 @@ module.exports = {
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   plugins: ['react-refresh'],
   rules: {
+    '@typescript-eslint/no-unused-vars': 'off',
     'react-refresh/only-export-components': 'warn',
   },
 }
