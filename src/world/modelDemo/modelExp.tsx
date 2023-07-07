@@ -29,7 +29,7 @@ export default function modelExp() {
         <Model />
         <Bird position-y={5} />
         <Fox />
-        <BookCase position-x={2} />
+        <BookCase />
       </Suspense>
       <Perf position="top-left" />
     </>
