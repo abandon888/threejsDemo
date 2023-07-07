@@ -32,8 +32,8 @@ export default function App() {
         }}
         onCreated={created}>
         <Experience />
-        <World1 />
-        {/* <ModelExp /> */}
+        {/* <World1 /> */}
+        <ModelExp />
       </Canvas>
     </>
   )
