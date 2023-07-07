@@ -25,9 +25,9 @@ export default function modelExp() {
           //并封装传参组件
           <Placeholder position-y={-1} rotation-x={-Math.PI * 0.5} scale={2} />
         }>
-        {/* <Model /> */}
+        <Model />
         <Bird position-y={5} />
-        {/* <Fox /> */}
+        <Fox />
       </Suspense>
       <Perf position="top-left" />
     </>
