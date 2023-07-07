@@ -1,9 +1,9 @@
 import * as THREE from 'three'
-import { createRoot } from 'react-dom/client'
-import React, { useRef, useState } from 'react'
-import { Canvas, useFrame, ThreeElements } from '@react-three/fiber'
+import { useRef, useState } from 'react'
+import { ThreeElements } from '@react-three/fiber'
 
 //这里对于Box的封装不错，能像原生一样调用
+
 function Box(props: ThreeElements['mesh']) {
   const mesh = useRef<THREE.Mesh>(null!)
   const [hovered, setHover] = useState(false)
@@ -24,11 +24,3 @@ function Box(props: ThreeElements['mesh']) {
 }
 
 export default Box
-// createRoot(document.getElementById('root')).render(
-//   <Canvas>
-//     <ambientLight />
-//     <pointLight position={[10, 10, 10]} />
-//     <Box position={[-1.2, 0, 0]} />
-//     <Box position={[1.2, 0, 0]} />
-//   </Canvas>,
-// )

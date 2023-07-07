@@ -1,13 +1,9 @@
 /* eslint-disable */
 import * as THREE from 'three'
-import * as React from 'react'
-import { useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber'
 //import { World } from './World1/World.js'
-import Experience from './world/Experience.js'
 import ModelExp from './world/modelDemo/modelExp.js'
 import { Leva } from 'leva'
-import World1 from './world/World.js'
 
 export default function App() {
   const created = ({ scene }: any) => {

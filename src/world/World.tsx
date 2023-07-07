@@ -1,25 +1,15 @@
 //react-three environment_and_staging一课（1：10：00/2：02：27)
 
-import React, { useRef } from 'react'
-import { Canvas, useFrame, extend, useThree } from '@react-three/fiber'
+import { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
 //import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import {
   OrbitControls,
-  SoftShadows,
-  TransformControls,
-  PivotControls,
-  Html,
-  Text,
-  Float,
-  MeshReflectorMaterial,
   AccumulativeShadows,
   useHelper,
   BakeShadows,
   RandomizedLight,
 } from '@react-three/drei'
-import CustomObject from './CustomObject'
-import Box from './Box'
-import { useControls, button } from 'leva'
 import { Perf } from 'r3f-perf'
 import * as THREE from 'three'
 
@@ -37,7 +27,7 @@ export default function World1() {
   //const cube1Ref = useRef<THREE.Mesh>(null!)
 
   useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
-  useFrame((state, delta) => {
+  useFrame((state: { clock: { getElapsedTime: () => any } }, delta: any) => {
     //console.log(state.clock)
     const angle = state.clock.getElapsedTime()
   })
