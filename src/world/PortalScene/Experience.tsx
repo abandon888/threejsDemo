@@ -1,4 +1,4 @@
-import { Clone, OrbitControls, useGLTF } from '@react-three/drei'
+import { Center, Clone, OrbitControls, useGLTF } from '@react-three/drei'
 import { useEffect } from 'react'
 import { Mesh, Material, AnimationClip } from 'three'
 
@@ -24,10 +24,12 @@ export default function PortalScene() {
       <directionalLight position={[0, 10, 0]} intensity={1} />
       <color attach="background" args={['#f1f1']} />
       <OrbitControls makeDefault />
-      <mesh scale={1.5}>
-        <boxGeometry />
-        <meshNormalMaterial />
-      </mesh>
+      <Center>
+        <mesh scale={1.5}>
+          <boxGeometry />
+          <meshNormalMaterial />
+        </mesh>
+      </Center>
       <Clone object={nodes.scene} position={[0, 1, 1]} />
     </>
   )
