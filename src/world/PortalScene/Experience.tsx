@@ -1,6 +1,7 @@
-import { Center, Clone, OrbitControls, useGLTF } from '@react-three/drei'
+import { Center, Clone, Html, OrbitControls, useGLTF } from '@react-three/drei'
 import { useEffect } from 'react'
 import { Mesh, Material, AnimationClip } from 'three'
+import Flag from '../../assets/flag'
 
 type GLTFResult = {
   nodes: {
@@ -29,6 +30,9 @@ export default function PortalScene() {
           <boxGeometry />
           <meshNormalMaterial />
         </mesh>
+        <Html>
+          <Flag />
+        </Html>
       </Center>
       <Clone object={nodes.scene} position={[0, 1, 1]} />
     </>
