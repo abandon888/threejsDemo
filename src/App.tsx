@@ -7,6 +7,7 @@ import { Leva } from 'leva'
 import Experience from './world/Experience.js'
 import World1 from './world/World.js'
 import PortalScene from './world/PortalScene/Experience.js'
+import PostProcess from './world/PostProcess/index.js'
 
 export default function App() {
   const created = ({ scene }: any) => {
@@ -35,7 +36,8 @@ export default function App() {
         {/* <Experience /> */}
         {/* <World1 /> */}
         {/* <ModelExp /> */}
-        <PortalScene />
+        {/* <PortalScene /> */}
+        <PostProcess />
       </Canvas>
     </>
   )
