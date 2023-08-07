@@ -25,7 +25,7 @@ export default function portfoli() {
 
       <PresentationControls
         global
-        rotation={[0.13, 0.1, 0]}
+        rotation={[0.13, 1.3, 0]}
         polar={[-0.4, 0.2]}
         azimuth={[-0.1, 0.75]}
         config={{ mass: 2, tension: 400 }}
@@ -47,17 +47,17 @@ export default function portfoli() {
               distanceFactor={1.17}
               position={[0, 1.56, -1.4]}
               rotation-x={-0.256}>
-              <iframe src="https://bruno-simon.com/html/" />
+              <iframe src="https://incu.ncuos.com/" />
             </Html>
           </primitive>
 
           <Text
             fontSize={0.5}
-            position={[2.5, 0.75, 0.75]}
+            position={[2.0, 0.75, 0.65]}
             rotation-y={-1.25}
             maxWidth={2}
             textAlign="center">
-            Made by WangYuhan (NCUHOMER)
+            Made by WangYuhan
           </Text>
         </Float>
       </PresentationControls>
