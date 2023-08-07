@@ -1,11 +1,13 @@
 import { Center, Clone, Html, OrbitControls, useGLTF } from '@react-three/drei'
 import { useEffect } from 'react'
-import { Mesh, Material, AnimationClip } from 'three'
+import { Mesh, Material, AnimationClip, Object3D } from 'three'
 import Flag from '../../assets/flag'
 
 type GLTFResult = {
+  scene: Object3D<Event> | Object3D<Event>[]
   nodes: {
     [name: string]: Mesh
+    scene: Mesh
   }
   materials: {
     [name: string]: Material

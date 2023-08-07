@@ -9,7 +9,6 @@ export default function Flag() {
       <g clip-path="url(#clip0_901_4782)">
         <mask
           id="mask0_901_4782"
-          style="mask-type:luminance"
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"

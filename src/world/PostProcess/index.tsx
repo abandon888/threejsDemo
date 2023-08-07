@@ -18,7 +18,7 @@ type GLTFResult = {
 export default function PostProcess() {
   return (
     <>
-      <EffectComposer multisampling={0}></EffectComposer>
+      {/* <EffectComposer multisampling={0}>1</EffectComposer> */}
 
       <Perf openByDefault position={'bottom-right'} />
 
