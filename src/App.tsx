@@ -8,6 +8,7 @@ import Experience from './world/Experience.js'
 import World1 from './world/World.js'
 import PortalScene from './world/PortalScene/Experience.js'
 import PostProcess from './world/PostProcess/index.js'
+import Portfoli from './world/Portfolio/index.js'
 
 export default function App() {
   const created = ({ scene }: any) => {
@@ -37,7 +38,8 @@ export default function App() {
         {/* <World1 /> */}
         {/* <ModelExp /> */}
         {/* <PortalScene /> */}
-        <PostProcess />
+        {/* <PostProcess /> */}
+        <Portfoli />
       </Canvas>
     </>
   )
