@@ -4,6 +4,7 @@ import { Mesh, Material, AnimationClip } from 'three'
 import Flag from '../../assets/flag'
 import { Perf } from 'r3f-perf'
 import { EffectComposer } from '@react-three/postprocessing'
+import { Physics, RigidBody } from '@react-three/rapier'
 
 type GLTFResult = {
   nodes: {
@@ -27,21 +28,25 @@ export default function PostProcess() {
       <directionalLight position={[0, 10, 0]} intensity={1} />
       <ambientLight intensity={0.5} />
 
-      <mesh castShadow position={[-2, 0, 0]} receiveShadow>
-        <sphereGeometry />
-        <meshStandardMaterial color={'orange'} />
-      </mesh>
+      <Physics>
+        <RigidBody>
+          <mesh castShadow position={[-2, 0, 0]} receiveShadow>
+            <sphereGeometry />
+            <meshStandardMaterial color={'orange'} />
+          </mesh>
+        </RigidBody>
+        <mesh castShadow position={[2, 0, 0]} receiveShadow>
+          <boxGeometry />
+          <meshStandardMaterial color={'Purple'} />
+        </mesh>
 
-      <mesh castShadow position={[2, 0, 0]} receiveShadow>
-        <boxGeometry />
-        <meshStandardMaterial color={'Purple'} />
-      </mesh>
-
-      <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
-        <planeGeometry args={[1, 1]} />
-        <meshStandardMaterial color="greenyellow" />
-      </mesh>
-
+        <RigidBody type="fixed">
+          <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
+            <planeGeometry args={[1, 1]} />
+            <meshStandardMaterial color="greenyellow" />
+          </mesh>
+        </RigidBody>
+      </Physics>
       {/* <mesh castShadow position={[2, 0, 0]} receiveShadow scale={1.5}> */}
     </>
   )

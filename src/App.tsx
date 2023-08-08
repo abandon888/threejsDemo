@@ -38,8 +38,8 @@ export default function App() {
         {/* <World1 /> */}
         {/* <ModelExp /> */}
         {/* <PortalScene /> */}
-        {/* <PostProcess /> */}
-        <Portfoli />
+        <PostProcess />
+        {/* <Portfoli /> */}
       </Canvas>
     </>
   )
