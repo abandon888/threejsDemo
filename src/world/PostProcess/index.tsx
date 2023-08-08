@@ -19,26 +19,37 @@ type GLTFResult = {
 export default function PostProcess() {
   return (
     <>
-      {/* <EffectComposer multisampling={0}>1</EffectComposer> */}
-
       <Perf openByDefault position={'bottom-right'} />
 
       <OrbitControls makeDefault />
 
-      <directionalLight position={[0, 10, 0]} intensity={1} />
+      <directionalLight position={[0, 10, 0]} intensity={1} castShadow />
       <ambientLight intensity={0.5} />
 
-      <Physics>
-        <RigidBody>
-          <mesh castShadow position={[-2, 0, 0]} receiveShadow>
+      <Physics debug>
+        <RigidBody colliders="ball">
+          <mesh castShadow position={[0, 5, 0]} receiveShadow>
             <sphereGeometry />
             <meshStandardMaterial color={'orange'} />
           </mesh>
         </RigidBody>
+
         <mesh castShadow position={[2, 0, 0]} receiveShadow>
           <boxGeometry />
-          <meshStandardMaterial color={'Purple'} />
+          <meshStandardMaterial color={'blue'} />
         </mesh>
+
+        <RigidBody colliders="trimesh">
+          <mesh
+            castShadow
+            position={[0, 3, 0]}
+            receiveShadow
+            //Math.PI * 0.5相当于90度
+            rotation={[Math.PI * 0.5, 0, 0]}>
+            <torusGeometry args={[1, 0.4, 16, 32]} />
+            <meshStandardMaterial color={'green'} />
+          </mesh>
+        </RigidBody>
 
         <RigidBody type="fixed">
           <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
