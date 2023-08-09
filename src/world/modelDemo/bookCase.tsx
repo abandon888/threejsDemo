@@ -14,8 +14,9 @@ export function BookCase(props: BookCaseProps) {
       [name: string]: THREE.Material
     }
   }
-
-  const { nodes, materials } = useGLTF('/bookcase.gltf') as GLTFResult
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
+  const { nodes, materials } = useGLTF('./bookcase.gltf') as GLTFResult
   return (
     <group {...props} dispose={null}>
       <mesh

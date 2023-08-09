@@ -4,7 +4,7 @@ import { Mesh, Material, AnimationClip } from 'three'
 import Flag from '../../assets/flag'
 import { Perf } from 'r3f-perf'
 import { EffectComposer } from '@react-three/postprocessing'
-import { Physics, RigidBody } from '@react-three/rapier'
+import { CuboidCollider, Physics, RigidBody } from '@react-three/rapier'
 
 type GLTFResult = {
   nodes: {
@@ -39,13 +39,13 @@ export default function PostProcess() {
           <meshStandardMaterial color={'blue'} />
         </mesh>
 
-        <RigidBody colliders="trimesh">
-          <mesh
-            castShadow
-            position={[0, 3, 0]}
-            receiveShadow
-            //Math.PI * 0.5相当于90度
-            rotation={[Math.PI * 0.5, 0, 0]}>
+        <RigidBody
+          colliders={false}
+          position={[0, 3, 0]}
+          //Math.PI * 0.5相当于90度
+          rotation={[Math.PI * 0.5, 0, 0]}>
+          <CuboidCollider args={[1, 1, 1]} />
+          <mesh castShadow receiveShadow>
             <torusGeometry args={[1, 0.4, 16, 32]} />
             <meshStandardMaterial color={'green'} />
           </mesh>
