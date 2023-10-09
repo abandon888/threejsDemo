@@ -12,5 +12,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-unused-vars': 'off',
     'react-refresh/only-export-components': 'warn',
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/ban-ts-comment": "warn"
   },
 }
