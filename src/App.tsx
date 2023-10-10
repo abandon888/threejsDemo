@@ -7,6 +7,7 @@ import Experience from './world/Experience.js'
 import World1 from './world/World.js'
 import Portfoli from './world/Portfolio/index.js'
 import Physics from './world/physics/index.js'
+import GalleryPage from './world/gallery/index.js'
 
 export default function App() {
   const created = ({ scene }: any) => {
@@ -38,7 +39,8 @@ export default function App() {
         {/* <PortalScene /> */}
         {/* <PostProcess /> */}
         {/* <Portfoli /> */}
-        {<Physics />}
+        {/* {<Physics />} */}
+        <GalleryPage />
       </Canvas>
     </>
   )
