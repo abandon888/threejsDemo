@@ -39,8 +39,11 @@ export function Player({ lerp = THREE.MathUtils.lerp }) {
   })
   return (
     <>
-      <RigidBody ref={ref} position={[2, 8, 2]}>
-        {/* <CapsuleCollider args={[1, 1]} /> */}
+      <RigidBody ref={ref} position={[0, 6, -10]} colliders="trimesh">
+        <mesh>
+          <sphereGeometry />
+          <meshStandardMaterial color="hotpink" />
+        </mesh>
       </RigidBody>
     </>
   )

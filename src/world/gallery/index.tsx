@@ -1,4 +1,5 @@
 import {
+  Environment,
   KeyboardControls,
   OrbitControls,
   PointerLockControls,
@@ -73,14 +74,18 @@ export default function GalleryPage() {
         ]}>
         <Physics>
           <Debug />
+          {/* <Environment
+            files="../../../public/canary_wharf_2k.hdr"
+            ground={{ height: 10, radius: 40, scale: 40 }}
+          /> */}
           {/* <Canvas camera={{ position: [0, 0, 0] }}> */}
           <Perf position="top-left" />
           <directionalLight castShadow position={[0, 10, 0]} intensity={1} />
           <ambientLight intensity={0.5} />
           {/* 引入模型 */}
           <Player />
-          <RigidBody type="fixed" colliders="cuboid">
-            <primitive object={gallery.scene} />;{/* </Canvas> */}
+          <RigidBody type="fixed" colliders="trimesh">
+            <primitive object={gallery.scene} />
           </RigidBody>
 
           <RigidBody type="fixed" friction={0}>
@@ -94,6 +99,11 @@ export default function GalleryPage() {
             </mesh>
           </RigidBody>
         </Physics>
+        {/* <mesh position={[0, 5, -10]}>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshStandardMaterial color="powderblue" />
+        </mesh> */}
+        {/* <OrbitControls /> */}
         <PointerLockControls />
       </KeyboardControls>
     </>
