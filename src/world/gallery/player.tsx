@@ -1,6 +1,6 @@
 // 导入 Three.js
 import * as THREE from 'three'
-
+import { Vector3 } from 'three'
 // 导入 Rapier 物理引擎
 import * as RAPIER from '@dimforge/rapier3d-compat'
 
@@ -18,21 +18,21 @@ import { CapsuleCollider, RigidBody, useRapier } from '@react-three/rapier'
 const SPEED = 5
 
 // 存储移动方向的向量
-const direction = new THREE.Vector3()
+const direction: THREE.Vector3 = new THREE.Vector3()
 
 // 正前方方向向量
-const frontVector = new THREE.Vector3()
+const frontVector: THREE.Vector3 = new THREE.Vector3()
 
 // 正左方方向向量
-const sideVector = new THREE.Vector3()
+const sideVector: THREE.Vector3 = new THREE.Vector3()
 
 // 绕 Y 轴旋转的角度向量
 const rotation = new THREE.Vector3()
 
 export function Player({ lerp = THREE.MathUtils.lerp }) {
   // 保存对斧头和玩家游戏对象的引用
-  const axe = useRef()
-  const ref = useRef()
+  // const axe = useRef()
+  const ref = useRef<RAPIER.RigidBody>()
 
   // 初始化 Rapier 物理引擎
   const rapier = useRapier()
@@ -43,13 +43,17 @@ export function Player({ lerp = THREE.MathUtils.lerp }) {
   useFrame((state) => {
     // 获取键盘输入方向
     const { forward, backward, left, right, jump } = get()
-    console.log(forward, backward, left, right, jump)
+    //console.log(forward, backward, left, right, jump)
 
     // 当前速度向量
     const velocity = ref.current.linvel()
-    console.log(velocity)
+    // console.log(velocity)
     // 更新摄像机位置跟随玩家
-    state.camera.position.set(...ref.current.translation())
+    state.camera.position.set(
+      ref.current.translation().x,
+      ref.current.translation().y,
+      ref.current.translation().z
+    )
 
     // // 更新斧头朝向
     // axe.current.children[0].rotation.x = lerp(axe.current.children[0].rotation.x, Math.sin((velocity.length() > 1) * state.clock.elapsedTime * 10) / 6, 0.1)
@@ -57,8 +61,10 @@ export function Player({ lerp = THREE.MathUtils.lerp }) {
     // axe.current.position.copy(state.camera.position).add(state.camera.getWorldDirection(rotation).multiplyScalar(1))
 
     // 根据键盘输入计算前进和左右移动方向
+    //@ts-ignore
     frontVector.set(0, 0, backward - forward)
-    console.log(frontVector)
+    //console.log(frontVector)
+    //@ts-ignore
     sideVector.set(left - right, 0, 0)
     direction
       .subVectors(frontVector, sideVector)
@@ -67,15 +73,20 @@ export function Player({ lerp = THREE.MathUtils.lerp }) {
       .applyEuler(state.camera.rotation)
 
     // 设置线性速度
-    ref.current.setLinvel({ x: direction.x, y: velocity.y, z: direction.z })
+    ref.current.setLinvel(
+      { x: direction.x, y: velocity.y, z: direction.z },
+      true
+    )
 
     // 判断是否在地面,从而实现跳跃
-    const world = rapier.world.raw()
+    const world: RAPIER.World = rapier.world.raw()
     const ray = world.castRay(
-      new RAPIER.Ray(ref.current.translation(), { x: 0, y: -1, z: 0 })
+      new RAPIER.Ray(ref.current.translation(), { x: 0, y: -1, z: 0 }),
+      1,
+      true
     )
     const grounded = ray && ray.collider && Math.abs(ray.toi) <= 1.75
-    if (jump && grounded) ref.current.setLinvel({ x: 0, y: 7.5, z: 0 })
+    if (jump && grounded) ref.current.setLinvel({ x: 0, y: 7.5, z: 0 }, true)
   })
 
   // useEffect(() => {
@@ -86,6 +97,7 @@ export function Player({ lerp = THREE.MathUtils.lerp }) {
     <>
       {/* 刚体组件 */}
       <RigidBody
+        //@ts-ignore
         ref={ref}
         colliders={false}
         mass={1}
