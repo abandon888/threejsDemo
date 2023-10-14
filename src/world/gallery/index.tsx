@@ -12,9 +12,10 @@ import { useState, useEffect } from 'react'
 import { extend } from '@react-three/fiber'
 import { Debug, Physics, RigidBody } from '@react-three/rapier'
 import { Player } from './player'
+import Wall from './wall'
 
 export default function GalleryPage() {
-  const gallery = useGLTF('./gallery/scene_collision.gltf')
+  const gallery = useGLTF('./the_hallwyl_museum/modelDraco.gltf')
   const { camera } = useThree()
   const [position, setPositon] = useState([0, 0, 0])
   // const controls = new OrbitControls(camera)
@@ -73,7 +74,7 @@ export default function GalleryPage() {
           { name: 'jump', keys: ['Space'] },
         ]}>
         <Physics>
-          <Debug />
+          {/* <Debug /> */}
           {/* <Environment
             files="../../../public/canary_wharf_2k.hdr"
             ground={{ height: 10, radius: 40, scale: 40 }}
@@ -88,21 +89,27 @@ export default function GalleryPage() {
             <primitive object={gallery.scene} />
           </RigidBody>
 
-          <RigidBody type="fixed" friction={0}>
+          <RigidBody type="fixed">
             <mesh
               receiveShadow
-              position-y={-1.25}
+              position-y={-0.8}
               rotation-x={-Math.PI * 0.5}
               scale={10}>
-              <boxGeometry args={[1, 1, 0.05]} />
+              <boxGeometry args={[10, 10, 0.05]} />
               <meshStandardMaterial color="powderblue" />
             </mesh>
           </RigidBody>
+
+          {/* <RigidBody type="dynamic" mass={1}>
+            <mesh position={[-5, 0, 15]}>
+              <boxGeometry args={[1, 1, 1]} />
+              <meshStandardMaterial color="powderblue" />
+            </mesh>
+          </RigidBody> */}
+
+          {/* <Wall /> */}
         </Physics>
-        {/* <mesh position={[0, 5, -10]}>
-          <boxGeometry args={[1, 1, 1]} />
-          <meshStandardMaterial color="powderblue" />
-        </mesh> */}
+
         {/* <OrbitControls /> */}
         <PointerLockControls />
       </KeyboardControls>
